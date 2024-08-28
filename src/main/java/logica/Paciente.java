@@ -6,37 +6,42 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author Jabier Zurro Aduriz
  */
+@Entity
 public class Paciente extends Persona {
-    private int idPaciente;
+    //private int idPaciente;
     private boolean tieneSeguro;
     private String grupoSanguineo;
+    @OneToOne
     private Responsable uResponsable;
+    @OneToMany(mappedBy = "pacien")
     private List<Cita> listaCitas;
 
     public Paciente() {
     }
 
-    public Paciente(int idPaciente, boolean tieneSeguro, String grupoSanguineo, Responsable uResponsable, List<Cita> listaCitas, String dni, String nombre, String apellido, String telefono, String direccion, Date fechaNaci) {
-        super(dni, nombre, apellido, telefono, direccion, fechaNaci);
-        this.idPaciente = idPaciente;
+    public Paciente(boolean tieneSeguro, String grupoSanguineo, Responsable uResponsable, List<Cita> listaCitas, int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fechaNaci) {
+        super(id, dni, nombre, apellido, telefono, direccion, fechaNaci);
         this.tieneSeguro = tieneSeguro;
         this.grupoSanguineo = grupoSanguineo;
         this.uResponsable = uResponsable;
         this.listaCitas = listaCitas;
     }
 
-    public int getIdPaciente() {
+    /*public int getIdPaciente() {
         return idPaciente;
     }
 
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
-    }
+    }*/
 
     public boolean isTieneSeguro() {
         return tieneSeguro;

@@ -5,25 +5,44 @@
 package logica;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Jabier Zurro Aduriz
  */
+@Entity
 public class Cita {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCita;
+    @Temporal(TemporalType.DATE)
     private Date fechaCita;
     private String horaCita;
     private String afeccion;
+    @ManyToOne
+    @JoinColumn(name = "")
+    private Odontologo odonto;
+    @ManyToOne
+    @JoinColumn(name = "")
+    private Paciente pacien;
 
     public Cita() {
     }
 
-    public Cita(int idCita, Date fechaCita, String horaCita, String afeccion) {
+    public Cita(int idCita, Date fechaCita, String horaCita, String afeccion, Odontologo odonto) {
         this.idCita = idCita;
         this.fechaCita = fechaCita;
         this.horaCita = horaCita;
         this.afeccion = afeccion;
+        this.odonto = odonto;
     }
 
     public int getIdCita() {

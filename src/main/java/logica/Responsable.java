@@ -5,31 +5,32 @@
 package logica;
 
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Jabier Zurro Aduriz
  */
+@Entity
 public class Responsable extends Persona {
-    private int idResponsable;
+    //private int idResponsable;
     private String tipoResponsabilidad;
 
     public Responsable() {
     }
 
-    public Responsable(int idResponsable, String tipoResponsabilidad, String dni, String nombre, String apellido, String telefono, String direccion, Date fechaNaci) {
-        super(dni, nombre, apellido, telefono, direccion, fechaNaci);
-        this.idResponsable = idResponsable;
+    public Responsable(String tipoResponsabilidad, int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fechaNaci) {
+        super(id, dni, nombre, apellido, telefono, direccion, fechaNaci);
         this.tipoResponsabilidad = tipoResponsabilidad;
     }
 
-    public int getIdResponsable() {
+    /*public int getIdResponsable() {
         return idResponsable;
     }
 
     public void setIdResponsable(int idResponsable) {
         this.idResponsable = idResponsable;
-    }
+    }*/
 
     public String getTipoResponsabilidad() {
         return tipoResponsabilidad;
