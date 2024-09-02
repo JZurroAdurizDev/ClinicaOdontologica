@@ -4,6 +4,7 @@
  */
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import javax.persistence.OneToOne;
  * @author Jabier Zurro Aduriz
  */
 @Entity
-public class Odontologo extends Persona {
+public class Odontologo extends Persona implements Serializable {
     //private int idOdontologo;
     private String especialidad;
     @OneToMany(mappedBy = "odonto")

@@ -4,6 +4,7 @@
  */
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ import javax.persistence.TemporalType;
  * @author Jabier Zurro Aduriz
  */
 @Entity
-public class Cita {
+public class Cita implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCita;
@@ -28,10 +29,10 @@ public class Cita {
     private String horaCita;
     private String afeccion;
     @ManyToOne
-    @JoinColumn(name = "")
+    @JoinColumn(name = "idOdonto")
     private Odontologo odonto;
     @ManyToOne
-    @JoinColumn(name = "")
+    @JoinColumn(name = "idPacien")
     private Paciente pacien;
 
     public Cita() {
